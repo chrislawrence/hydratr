@@ -2,6 +2,45 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.hourly_answer, .daily_answer {
+.answer, .hourly_answer, .daily_answer {
   display: none;
+}
+
+#preferences {
+  max-width: 300px;
+  margin: 0 auto;
+  input, label {
+    float: left;
+    color: #3d3d3d;
+  }
+  label {
+    margin-right: 2em;
+  }
+}
+
+.patient {
+  font-size: 2em;
+  li {
+    margin-top: 1em;
+  }
+}
+
+.hourly_answer, .daily_answer {
+  text-align: center;
+  font-size: 1.6em;
+  line-height: 1.5;
+}
+
+#next_problem {
+  text-align: right;
+  a {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+.explanation {
+  text-align: right;
+  font-size: 0.4em;
+  color: #A97864;
 }

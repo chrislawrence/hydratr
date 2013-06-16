@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hydratr</title>
+  <title>Hydratr: Paediatric IV Fluid Calculation Test</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//use.typekit.net/lef3kzf.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-
-<%= yield %>
-
+  <div id="wrapper">
+    <header>
+      <h1>Hydratr</h1>
+      <h2>Paediatric IV Fluids Calculation Test</h2>
+    </header>
+    <div id="instructions">
+      <p>Calculate the <strong>hourly</strong> and <strong>daily</strong> fluid rates for the patient given their weight and percentage of dehydration. You can use the hourly calculation method (4/2/1) or the daily calculation method (100/50/20). Your answer may be slightly off but as long as it is within a few mLs you should be on the right track. Also note that the age and weight are randomly generated and do not reflect the natural limits of anything.</p>
+    </div>
+    
+    <div id="preferences">
+    <%= radio_button_tag 'method','hourly', checked = hourly_default %> <%=label_tag "4/2/1 Method" %>
+    <%= radio_button_tag 'method','daily', checked = daily_default %>   <%=label_tag "100/50/20 Method" %>
+    </div>
+    
+    <div class="clear"></div>
+    
+    <div id="calculator">
+      <%= yield %>
+    </div>
+    <footer>
+      <p>Based on the <a href="http://www0.health.nsw.gov.au/policies/pd/2010/pdf/pd2010_009.pdf">NSW Health Guidelines</a>. Created by <a href="http://chrislawrence.me">Chris Lawrence</a></p>
+    </footer>
+  </div>
+  
+  
+  
 </body>
 </html>

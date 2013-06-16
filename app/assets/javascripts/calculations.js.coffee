@@ -9,9 +9,8 @@ $ ->
       url: 'preferences'
       data: {default_method: 'hourly'}
       })
-    if $('.reveal_answer').css('display','none')
-      $('.daily_answer').css('display','none')
-      $('.hourly_answer').css('display','block')
+    if $('.reveal_answer').css('display') == 'none'
+      $('.daily_answer').css('display','none') and $('.hourly_answer').css('display','block')
     
   $('#method_daily').click -> 
     $.ajax({
@@ -19,13 +18,13 @@ $ ->
       url: 'preferences'
       data: {default_method: 'daily'}
       })
-    if $('.reveal_answer').css('display','none')
-      $('.hourly_answer').css('display','none')
-      $('.daily_answer').css('display','block')
+    if $('.reveal_answer').css('display') == 'none'
+      $('.hourly_answer').css('display','none') and $('.daily_answer').css('display','block')
   
   class Answer
     reveal: ->
-      $('.reveal_answer').css('display', 'none') 
+      $('.reveal_answer').css('display', 'none')
+      $('.answer').css('display', 'block') 
       $('.hourly_answer').css('display', 'block') if $('#method_hourly').is(':checked')
       $('.daily_answer').css('display', 'block') if $('#method_daily').is(':checked')
   window.Answer = new Answer

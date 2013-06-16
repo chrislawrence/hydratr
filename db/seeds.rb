@@ -8,5 +8,5 @@
 
 
 500.times do
-  Calculation.create(weight: rand(10..35), dehydration: rand(5..10))
+  Calculation.create(weight: rand(7..25), dehydration: rand(5..10))
 end

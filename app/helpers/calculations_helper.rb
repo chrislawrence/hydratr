@@ -10,5 +10,13 @@ module CalculationsHelper
   def daily_default
     true if session[:default_method] == 'daily'
   end
-
+  
+  def random_gender
+    r = rand(0..1)
+    if r == 0
+      return 'boy'
+    else
+      return 'girl'
+    end
+  end 
 end

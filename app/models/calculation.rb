@@ -7,19 +7,39 @@ class Calculation < ActiveRecord::Base
   end
   
   def daily_method_hourly_total
-    hourly_deficit + daily_method_maintenance_per_hour
+    total = hourly_deficit + daily_method_maintenance_per_hour
+    if total > 100 
+      return 100
+    else
+      return total
+    end
   end
   
   def hourly_method_hourly_total
-    hourly_deficit + hourly_maintenance
+    total = hourly_deficit + hourly_maintenance
+    if total > 100
+      return 100
+    else
+      return total
+    end
   end
   
   def daily_method_total
-    deficit + daily_maintenance
+    total = deficit + daily_maintenance
+    if total > 2400
+      return 2400
+    else
+      return total
+    end
   end
   
   def hourly_method_total
-    deficit + hourly_method_maintenance_per_day
+    total = deficit + hourly_method_maintenance_per_day
+    if total > 2400
+      return 2400
+    else
+      return total
+    end
   end
   
   def hourly_method_maintenance_per_day
