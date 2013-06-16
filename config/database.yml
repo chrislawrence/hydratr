@@ -4,3 +4,10 @@ development:
   database: hydratr_development
   pool: 5
   host: localhost
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: hydratr_test
+  pool: 5
+  host: localhost

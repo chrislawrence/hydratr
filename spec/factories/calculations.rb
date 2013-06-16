@@ -2,8 +2,13 @@
 
 FactoryGirl.define do
   factory :calculation do
-    deficit ""
-    maintenance ""
-    method "MyString"
+    weight 20
+    dehydration 5
+    factory :hourly do
+      method "hourly"
+    end
+    factory :daily do
+      method "daily"
+    end
   end
 end

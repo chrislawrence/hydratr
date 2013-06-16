@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+500.times do
+  Calculation.create(weight: rand(10..35), dehydration: rand(5..10))
+end

@@ -1,0 +1,18 @@
+<p> Calculate the hourly fluid requirements for a <%= @calculation.weight %>kg child who is <%= @calculation.dehydration %>% dehydrated.</p>
+<%= radio_button_tag 'method','hourly', checked = hourly_default %>
+<%=label_tag "4/2/1 Method" %>
+<%= radio_button_tag 'method','daily', checked = daily_default %><%=label_tag "100/50/20 Method" %>
+
+<button class="reveal_answer" onclick="javascript:Answer.reveal()">Reveal answer</button>
+
+<p class="hourly_answer">
+  <%= clean @calculation.hourly_method_hourly_total %>mL per hour,
+  <%= clean @calculation.hourly_method_total%>mL per day
+</p>
+
+<p class="daily_answer">
+  <%= clean @calculation.daily_method_hourly_total%>mL per hour,
+  <%= clean @calculation.daily_method_total%>mL per day.
+</p>
+
+<button onclick="history.go(0)">Next Problem</a>
