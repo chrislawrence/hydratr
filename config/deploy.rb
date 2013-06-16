@@ -1,34 +1,21 @@
 require "bundler/capistrano"
-require "whenever/capistrano"
 require "capistrano-rbenv"
-set :rbenv_ruby_version, "2.0.0-p0"
+set :rbenv_ruby_version, "2.0.0-p195"
 
 server "108.166.77.98", :web, :app, :db, primary: true
+after "deploy:restart", "deploy:cleanup"
 
 set :application, "hydratr"
 set :user, "chris"
+set :repository,  "https://github.com/chrislawrence/hydratr"
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :deploy_via, :remote_cache
 set :use_sudo, false
 
-set :scm, "git"
-set :repository, "https://github.com/chrislawrence/hydratr.git"
-set :branch, "master"
-
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 
-after "deploy", "deploy:cleanup" # keep only the last 5 releases
-
-    
-    task :symlink, roles: :web do
-      run ("rm -rf #{latest_release}/public/assets &&
-            mkdir -p #{latest_release}/public &&
-            mkdir -p #{shared_path}/assets &&
-            ln -s #{shared_path}/assets #{latest_release}/public/assets")
-    end
-  end
-
+namespace :deploy do
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
@@ -52,8 +39,8 @@ after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
   desc "Make sure local git is in sync with remote."
   task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/#{branch}`
-      puts "WARNING: HEAD is not the same as origin/#{branch}"
+    unless `git rev-parse HEAD` == `git rev-parse origin/master`
+      puts "WARNING: HEAD is not the same as origin/master"
       puts "Run `git push` to sync changes."
       exit
     end

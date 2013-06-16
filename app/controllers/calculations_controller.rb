@@ -1,5 +1,6 @@
 class CalculationsController < ApplicationController
   def index
+    session[:default_method] ||= "daily"
     random = rand(1..Calculation.count)
     @calculation = Calculation.order("RANDOM()").first
   end

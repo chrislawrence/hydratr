@@ -1,5 +1,5 @@
 Hydratr::Application.routes.draw do
-  get "calculations/index"
+  root to: "calculations#index"
   post "calculations/preferences"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

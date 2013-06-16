@@ -6,7 +6,7 @@ $ ->
   $('#method_hourly').click -> 
     $.ajax({
       type: 'POST',
-      url: 'preferences'
+      url: 'calculations/preferences'
       data: {default_method: 'hourly'}
       })
     if $('.reveal_answer').css('display') == 'none'
@@ -15,7 +15,7 @@ $ ->
   $('#method_daily').click -> 
     $.ajax({
       type: 'POST',
-      url: 'preferences'
+      url: 'calculations/preferences'
       data: {default_method: 'daily'}
       })
     if $('.reveal_answer').css('display') == 'none'

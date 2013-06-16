@@ -9,8 +9,17 @@
   <h3>Answer</h3>
   
   <div class="hourly_answer">
+    <h4>Bolus</h4>
     <p><strong>10-20 mL</strong>/kg bolus</p>
-    <p>
+    
+    <h4>Maintenance</h4>
+    <p><strong><%= clean @calculation.hourly_maintenance %>mL</strong>/hour</p>
+    
+    <h4>Deficit</h4>
+    <p><strong><%= clean @calculation.deficit%>mL</strong>/day</p>
+    
+    <h4>Total</h4>
+    <p class="total">
       <strong><%= clean @calculation.hourly_method_hourly_total %>mL</strong> per hour<br />
       <strong><%= clean @calculation.hourly_method_total%>mL</strong> per day
     </p>
@@ -19,10 +28,21 @@
     <% end %>
   </div>
   <div class="daily_answer">
+    
+    <h4>Bolus</h4>
     <p><strong>10-20 mL</strong>/kg bolus</p>
-    <p>
-      <strong><%= clean @calculation.daily_method_hourly_total%>mL</strong> per hour<br />
-      <strong><%= clean @calculation.daily_method_total%>mL</strong> per day
+    
+    <h4>Maintenance</h4>
+    <p><strong><%= clean @calculation.daily_maintenance %>mL</strong>/day</p>
+    
+    <h4>Deficit</h4>
+    <p><strong><%= clean @calculation.deficit%>mL</strong>/day</p>
+    
+    <h4>Total</h4>
+    <p class="total">
+      <strong><%= clean @calculation.daily_method_total%>mL</strong> per day<br />
+      <strong><%= clean @calculation.daily_method_hourly_total%>mL</strong> per hour
+      
     </p>
       <% if @calculation.daily_method_total > 2399 %><p class="explanation">Note: 2400 mL per day is the normal maximum amount.</p><% end %>
   </div>

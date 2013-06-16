@@ -26,8 +26,8 @@
 }
 
 .hourly_answer, .daily_answer {
-  text-align: center;
-  font-size: 1.6em;
+  margin-left: 1em;
+  text-align: left;
   line-height: 1.5;
 }
 
@@ -39,8 +39,11 @@
   }
 }
 
+.total {
+  font-size: 1.6em;
+}
+
 .explanation {
-  text-align: right;
-  font-size: 0.4em;
+  font-size: 0.7em;
   color: #A97864;
 }

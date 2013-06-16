@@ -54,3 +54,5 @@ group :test do
   gem 'rb-fsevent', '~> 0.9'
   gem 'faker'
 end
+
+gem 'unicorn'
